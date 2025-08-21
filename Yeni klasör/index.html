@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avucunda Öpücük — Kitap Tanıtımı</title>
+  <meta name="description" content="Avucunda Öpücük adlı çocuk kitabının modern tanıtım sayfası." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff;
+      --fg:#111;
+      --muted:#555;
+      --line:#eee;
+      --soft:#fafafa;
+      --accent:#FFD54F;
+      --accent2:#111;
+      --radius:22px;
+      --shadow:0 16px 32px rgba(0,0,0,.14);
+      --glass:rgba(255,255,255,.65);
+      --blur:12px;
+      --wm:url('0e242b50-e1ad-433d-912b-8613d51d99ba.png');
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .logo {
+      height: 40px;
+      width: auto;
+      margin-right: 10px;
+      border-radius: 8px;
+      animation: logoPop 1.4s ease-in-out;
+    }
+    @keyframes logoPop {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    p {
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0}
+    html,body{font-family:"Inter",sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; position:relative}
+
+    /* Filigran arka plan */
+    body::after{
+      content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image:var(--wm);
+      background-repeat:no-repeat;
+      background-position:center center;
+      background-size:min(90vw, 1200px);
+      opacity:.1; filter:grayscale(100%) contrast(1.1);
+    }
+    header, main, footer{position:relative; z-index:1}
+    @media(max-width:900px){body::after{background-position:center 20%; background-size:110vw; opacity:.12}}
+
+    /* Layout */
+    .container{max-width:1200px; margin:0 auto; padding:32px 24px}
+    section{margin:72px 0}
+    @media(min-width:992px){section{margin:96px 0}}
+
+    /* Sticky header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(var(--blur));
+      background:linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.55));
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .nav{max-width:1200px; margin:0 auto; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px}
+    .brand{display:flex; align-items:center; gap:14px}
+    .logo{height:46px; width:auto; border-radius:10px; box-shadow:var(--shadow); display:block}
+    .title{font-family:"Space Grotesk"; font-size:clamp(28px,3.5vw,38px); font-weight:700; letter-spacing:-.5px}
+
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{padding:12px 18px; border-radius:14px; font-weight:700; text-decoration:none; font-size:15px; display:inline-flex; align-items:center; gap:8px; transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease}
+    .btn.primary{background:var(--accent); color:#111; box-shadow:0 10px 24px rgba(255,213,79,.35)}
+    .btn.primary:hover{transform:translateY(-3px)}
+    .btn.secondary{background:#111; color:#fff; box-shadow:0 10px 24px rgba(17,17,17,.25)}
+    .btn.secondary:hover{transform:translateY(-3px); opacity:.9}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1fr; gap:28px; align-items:center}
+    @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr; gap:50px}}
+    .coverWrap{position:relative}
+    .cover{
+      width:100%; aspect-ratio:3/4; border-radius:var(--radius);
+      border:6px solid var(--accent2); box-shadow:var(--shadow);
+      transform:rotate(-.7deg); overflow:hidden; background:var(--soft);
+    }
+    .cover img{width:100%; height:100%; object-fit:cover; display:block}
+    .floater{position:absolute; border-radius:16px; padding:10px 14px; font-weight:700; font-size:14px; color:#111; background:var(--accent);
+      box-shadow:0 10px 24px rgba(255,213,79,.35); animation:float 6s ease-in-out infinite}
+    .floater.f1{left:-10px; top:-14px}
+    .floater.f2{right:-10px; bottom:-16px; animation-delay:1.3s}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+    .info h1{font-family:"Space Grotesk"; font-size:clamp(36px,5vw,64px); line-height:1.05; margin-bottom:16px; letter-spacing:-1px}
+    .highlight{background:var(--accent); color:#111; padding:6px 14px; border-radius:999px; font-weight:700; display:inline-block; margin-bottom:18px; font-size:14px; box-shadow:0 8px 20px rgba(255,213,79,.35)}
+    .desc{margin:12px 0; font-size:17px}
+    .meta{color:var(--muted); margin-bottom:16px; font-size:14px}
+    .underline{position:relative; display:inline-block}
+    .underline::after{
+      content:""; position:absolute; left:0; right:0; bottom:-6px; height:8px;
+      background:linear-gradient(90deg, rgba(255,213,79,.8), rgba(255,213,79,0));
+      border-radius:6px; filter:blur(6px); opacity:.7
+    }
+
+    /* Facts */
+    .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:26px}
+    .fact{
+      background:linear-gradient(180deg, var(--glass), rgba(255,255,255,.8));
+      border:1px solid rgba(0,0,0,.06);
+      backdrop-filter:blur(var(--blur));
+      border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+      position:relative; overflow:hidden;
+    }
+    .fact::before{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background:radial-gradient(120px 120px at var(--mx,70%) var(--my,30%), rgba(255,213,79,.15), transparent 60%);
+      transition:opacity .2s ease; opacity:.6
+    }
+    .fact:hover{transform:translateY(-6px)}
+    h2{font-family:"Space Grotesk"; margin-bottom:10px; font-size:22px}
+
+    /* Gallery */
+    .gallery h2{font-family:"Space Grotesk"; font-size:26px; margin-bottom:16px}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px}
+    .ph{position:relative; border-radius:16px; overflow:hidden; box-shadow:var(--shadow); transform:perspective(800px) rotateX(0deg) rotateY(0deg); transition:transform .2s ease; cursor:pointer}
+    .ph img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s ease}
+    .ph:hover img{transform:scale(1.06)}
+    .ph:hover{transform:perspective(800px) rotateX(2deg) rotateY(-2deg)}
+
+
+/* School / Info */
+    .school{display:grid; grid-template-columns:1fr; gap:24px; align-items:stretch}
+    .card{
+      background:#fff; border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow); padding:26px;
+      transition:transform .25s ease, box-shadow .25s ease
+    }
+    .card:hover{transform:translateY(-6px)}
+    .badge{display:inline-block; background:var(--accent); color:#111; padding:4px 10px; border-radius:999px; font-size:13px; font-weight:700; margin-right:8px}
+    .card h3{font-size:22px; margin-bottom:12px; font-family:"Space Grotesk"}
+
+    /* Video Section */
+    #video .frame{
+      position:relative; width:100%; aspect-ratio:16/9; border-radius:20px; overflow:hidden;
+      border:6px solid var(--accent2); box-shadow:var(--shadow); background:#000
+    }
+    #video .frame iframe{width:100%; height:100%; border:0}
+
+    /* Footer */
+    footer{text-align:center; color:var(--muted); font-size:14px; margin:64px 0 24px; padding-top:20px; border-top:1px solid var(--line)}
+
+    /* Cursor light for facts */
+    .facts .fact{--mx:70%; --my:30%}
+    .facts .fact:hover{background:linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.95))}
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0; background:rgba(0,0,0,.85);
+      display:none; align-items:center; justify-content:center;
+      z-index:1000; padding:32px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox img{
+      max-width:92vw; max-height:85vh; border-radius:16px; box-shadow:var(--shadow)
+    }
+    .lb-close, .lb-prev, .lb-next{
+      position:absolute; top:24px; background:rgba(255,255,255,.9); color:#111;
+      border:none; font-weight:700; border-radius:999px; padding:10px 14px; cursor:pointer;
+      box-shadow:var(--shadow)
+    }
+    .lb-close{right:24px}
+    .lb-prev, .lb-next{top:50%; transform:translateY(-50%)}
+    .lb-prev{left:18px}
+    .lb-next{right:18px}
+    @media (prefers-reduced-motion: reduce){
+      .btn,.ph,.fact,.floater{animation:none !important; transition:none !important}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <img src="izci-logo.png" alt="İzci Anaokulu Logosu" class="logo" />
+        <div class="title">Avucunda Öpücük</div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#video">📺 Videoyu İzle</a>
+        <a class="btn secondary" href="#okul">🏫 Okul Bilgileri</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Kitap kahraman bölümü">
+      <div class="coverWrap">
+        <div class="cover"><img src="page1.png" alt="Avucunda Öpücük Kitap Kapağı" loading="eager" /></div>
+        <div class="floater f1">Sevgi Hep Yanında</div>
+        <div class="floater f2">4+</div>
+      </div>
+
+      <div class="info">
+        <span class="highlight">Çocuklar İçin Güven ve Sevgi Hikâyesi</span>
+        <h1><span class="underline">Avucunda Öpücük</span></h1>
+        <div class="meta">Yazan: Audrey Penn • Çeviri: Türkçe • Yaş: 4+</div>
+        <p class="desc"><strong>Konusu:</strong> Küçük rakun Chester, okula başlarken annesinden ayrılma korkusu yaşar. Annesi avucuna bir öpücük kondurarak sevginin her zaman onunla olduğunu anlatır.</p>
+        <p class="desc"><strong>Temalar:</strong> Sevgi, güven, ayrılık kaygısı, okula uyum.</p>
+        <p class="desc"><strong>Neden Okunmalı?</strong> Çocuğun duygusal gelişimini destekler, veli–çocuk iletişimine köprü olur.</p>
+      </div>
+    </section>
+
+    <!-- Facts -->
+    <section class="facts" aria-label="Öne çıkan bilgiler">
+      <div class="fact"><h2>🧒 Hedef Kitle</h2><p>4–8 yaş çocuklar, aileler ve öğretmenler</p></div>
+      <div class="fact"><h2>📖 Kitap Türü</h2><p>Resimli hikâye • 32 sayfa • Renkli çizimler</p></div>
+      <div class="fact"><h2>🌟 Mesaj</h2><p>Sevginin ve güvenin her koşulda yanında olduğunu hatırlatır.</p></div>
+      <div class="fact"><h2>✨ Eğitimde Kullanım</h2><p>Okula uyum sürecinde güven ortamı kurar.</p></div>
+      <div class="fact"><h2>💡 Veliler İçin</h2><p>Ayrılık kaygısını hafifletir, duygusal destek sağlar.</p></div>
+      <div class="fact"><h2>🎨 Görsel Tarz</h2><p>Sıcak, modern ve çocuk dostu.</p></div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" aria-label="Kitaptan kareler">
+      <h2>📸 Kitaptan Kareler</h2>
+      <div class="grid" id="gallery">
+        <figure class="ph"><img src="unnamed.jpg"  alt="Kitap içinden sayfa 1"></figure>
+        <figure class="ph"><img src="unnamed1.jpg" alt="Kitap içinden sayfa 2"></figure>
+        <figure class="ph"><img src="0e242b50-e1ad-433d-912b-8613d51d99ba.png" alt="Kitap içinden sayfa 3"></figure>
+        <figure class="ph"><img src="page3.jpg"  alt="Kitap içinden sayfa 4"></figure>
+      </div>
+    </section>
+
+    <!-- Video -->
+    <section id="video" aria-label="Tanıtım videosu">
+      <h2 style="font-family:'Space Grotesk'; font-size:26px; margin-bottom:16px">📺 Tanıtım Videosu</h2>
+      <div class="frame">
+        <iframe src="https://drive.google.com/file/d/1Y9gk31patpmnGfb-9bo1fZK4QP1JuELJ/preview" title="Avucunda Öpücük tanıtım videosu" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- School -->
+    <section id="okul" class="school" aria-label="Okul bilgileri">
+      <div class="card">
+        <h3>Özel İzci Anaokulu</h3>
+        <p><span class="badge">Adres</span>Bostancı Mahallesi, Emin Ali Paşa Cd. No:86-1, Kadıköy/İstanbul</p>
+        <p><span class="badge">Telefon</span><a href="tel:+902164456171">(0216) 445 61 71</a></p>
+        <p><span class="badge">E-posta</span><a href="mailto:info@izcianaokulu.com">info@izcianaokulu.com</a></p>
+        <p><span class="badge">Saatler</span>Hafta içi 08:00 – 18:00</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2025 Avucunda Öpücük Tanıtım — Özel İzci Anaokulu tarafından hazırlanmıştır.</footer>
+
+  <!-- Lightbox DOM -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Kapat">✕</button>
+    <button class="lb-prev"  aria-label="Önceki">‹</button>
+    <img id="lightbox-img" alt="Büyük görsel" />
+    <button class="lb-next"  aria-label="Sonraki">›</button>
+  </div>
+
+  <script>
+    // Facts kartlarında imleç odak ışığı
+    document.querySelectorAll('.fact').forEach(card=>{
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100)+'%');
+        card.style.setProperty('--my', ((e.clientY - r.top)/r.height*100)+'%');
+      });
+    });
+
+    // Basit Lightbox
+    const galleryImgs = Array.from(document.querySelectorAll('#gallery img'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const btnClose = document.querySelector('.lb-close');
+    const btnPrev  = document.querySelector('.lb-prev');
+    const btnNext  = document.querySelector('.lb-next');
+    let current = 0;
+
+    function openLB(index){
+      current = index;
+      lbImg.src = galleryImgs[current].src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+    }
+    function closeLB(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden','true');
+    }
+    function prev(){
+      current = (current - 1 + galleryImgs.length) % galleryImgs.length;
+      lbImg.src = galleryImgs[current].src;
+    }
+    function next(){
+      current = (current + 1) % galleryImgs.length;
+      lbImg.src = galleryImgs[current].src;
+    }
+
+    galleryImgs.forEach((img, i)=>{
+      img.addEventListener('click', ()=>openLB(i));
+      img.style.cursor = 'zoom-in';
+    });
+
+    btnClose.addEventListener('click', closeLB);
+    btnPrev.addEventListener('click', prev);
+    btnNext.addEventListener('click', next);
+
+    // Dışına tıklayınca kapat
+    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
+
+    // Klavye kısayolları
+    window.addEventListener('keydown', (e)=>{
+      if(!lb.classList.contains('open')) return;
+      if(e.key === 'Escape') closeLB();
+      if(e.key === 'ArrowLeft') prev();
+      if(e.key === 'ArrowRight') next();
+    });
+  </script>
+</body>
+</html>
